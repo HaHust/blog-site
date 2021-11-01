@@ -26,8 +26,4 @@ public class Post extends DateAudit {
 
     @Column(name = "create_at")
     private LocalDateTime createAt;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 }
