@@ -3,6 +3,7 @@ package com.h2s.blogsite.entity;
 import com.h2s.blogsite.entity.audit.DateAudit;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,6 +16,8 @@ import java.time.LocalDateTime;
 @Setter
 public class Post extends DateAudit {
     @Id
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "post_id", nullable = false, length = 50)
     private String id;
 
@@ -26,4 +29,7 @@ public class Post extends DateAudit {
 
     @Column(name = "create_at")
     private LocalDateTime createAt;
+
+
+
 }
