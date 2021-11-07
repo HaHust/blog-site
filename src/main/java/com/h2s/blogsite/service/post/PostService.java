@@ -4,7 +4,6 @@ import com.h2s.blogsite.dto.request.PostRequest;
 import com.h2s.blogsite.dto.response.PostResponse;
 import org.springframework.stereotype.Service;
 
-@Service
 public interface PostService {
 
     PostResponse savePost(PostRequest postRequest);

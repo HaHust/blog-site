@@ -6,15 +6,13 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
-@Table(name = "posts", indexes = {
-        @Index(name = "user_id", columnList = "user_id")
-})
+@Table(name = "posts")
 @Entity
 @Getter
 @Setter
 public class Post extends DateAudit {
+
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
@@ -27,9 +25,7 @@ public class Post extends DateAudit {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "create_at")
-    private LocalDateTime createAt;
-
-
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 }

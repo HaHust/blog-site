@@ -1,4 +1,10 @@
--- `blog-site`.roles definition
+DROP SCHEMA IF EXISTS `blog_site`;
+
+CREATE SCHEMA `blog_site`;
+
+use `blog_site`;
+
+DROP TABLE IF EXISTS `roles`;
 
 CREATE TABLE `roles` (
                          `role_id` int NOT NULL AUTO_INCREMENT,
@@ -8,6 +14,8 @@ CREATE TABLE `roles` (
 
 
 -- `blog-site`.users definition
+
+DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
                          `user_id` varchar(50) NOT NULL,
@@ -19,6 +27,8 @@ CREATE TABLE `users` (
 
 
 -- `blog-site`.posts definition
+
+DROP TABLE IF EXISTS `posts`;
 
 CREATE TABLE `posts` (
                          `post_id` varchar(50) NOT NULL,
@@ -34,6 +44,8 @@ CREATE TABLE `posts` (
 
 -- `blog-site`.users_roles definition
 
+DROP TABLE IF EXISTS `users_roles`;
+
 CREATE TABLE `users_roles` (
                                `user_role_id` int NOT NULL AUTO_INCREMENT,
                                `user_id` varchar(50) DEFAULT NULL,
@@ -44,3 +56,5 @@ CREATE TABLE `users_roles` (
                                CONSTRAINT `users_roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
                                CONSTRAINT `users_roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `users`(user_id, email, password, full_name) VALUES ()
