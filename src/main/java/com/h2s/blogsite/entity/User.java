@@ -14,16 +14,16 @@ public class User {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "user_id", nullable = false, length = 50)
+    @Column(name = "user_id")
     private String id;
 
-    @Column(name = "email", nullable = false, length = 50)
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "password", nullable = false, length = 50)
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "full_name", nullable = false, length = 50)
+    @Column(name = "full_name")
     private String fullName;
 
 }
